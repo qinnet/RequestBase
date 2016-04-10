@@ -1,0 +1,7 @@
+﻿.layui-layer-content { padding: 15px; }
+.editorContainerMask { position: absolute; background: #ccc; z-index: 990; opacity: .5; filter: alpha(opacity=50); }
+.editorContainerMask_text { position: absolute; z-index: 999;color:#000; }
+.editorContainerMask_text > b { text-align: center; font-weight: bold; font-size: 16px; padding-top: 15px; display:block;}
+.editorContainerMask_text > p { padding: 10px; }
+.editoritemform { width: 700px; margin: 0 auto; padding-top: 15px; }
+.col-sm-2 { width: 90px; }

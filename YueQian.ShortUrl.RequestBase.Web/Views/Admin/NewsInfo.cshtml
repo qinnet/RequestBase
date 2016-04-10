@@ -1,0 +1,109 @@
+﻿@{Layout = null;}
+@modelYueQian.ShortUrl.RequestBase.DataModel.News
+<div class="box box-info">
+    <form class="form-horizontal" id="dataform">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="Title" class="col-sm-2 control-label">标题</label>
+                <div class="col-sm-10">
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "标题" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Title" class="col-sm-2 control-label">短标题</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.ShortTitle, new { @class = "form-control", placeholder = "短标题" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Title" class="col-sm-2 control-label">关联话题</label>
+                <div class="col-sm-10">
+                    @Html.HiddenFor(model => model.TopicId)
+                    <input class="form-control" id="TopicIdTitle" name="TopicIdTitle" placeholder="关联话题" type="text" value="" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ComeFrom" class="col-sm-2 control-label">来源</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.Source, new { @class = "form-control", placeholder = "来源" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Keywords" class="col-sm-2 control-label">关键词</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.Keywords, new { @class = "form-control", placeholder = "关键词" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Description" class="col-sm-2 control-label">描述</label>
+                <div class="col-sm-10">
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "描述", style = "height:150px;" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Contents" class="col-sm-2 control-label">内容</label>
+                <div class="col-sm-10">
+                    @Html.TextAreaFor(model => model.Contents, new { style = "height:450px;" })
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+        <div class="box-footer">
+            <button type="button" class="btn btn-default" id="edit_cancel">取消</button>
+            <button type="submit" class="btn btn-info pull-right">提交</button>
+        </div><!-- /.box-footer -->
+    </form>
+</div>
+<script>
+    var topicId = $("#TopicId").val();
+    if (topicId.length > 0) {
+        $.get("/Admin/TopicsSearch", { Id: topicId }, function (data) {
+            $("#TopicIdTitle").val(data.text);
+        }, "JSON");
+    }
+
+    $("#TopicIdTitle").change(function () { $("#TopicId").val(""); }).autocomplete("/Admin/TopicsSearch", { width: $("#TopicIdTitle").width() }).result(function (event, item) {
+        $.get("/Admin/TopicsSearch", { q: $("#TopicIdTitle").val(), "length": 1 }, function (data) {
+            if (data != null && data != undefined) $("#TopicId").val(data);
+        }, "JSON");
+    });
+
+    CKEDITOR.replace('Contents', { height: "400px" });
+
+
+    $("#edit_cancel").click(function () {
+        layer.confirm("确实要放弃对当前内容的编辑吗?", {
+            btn: ['放弃编辑', '取消']
+        }, function () {
+            $.AdminLTE.openTab("资讯列表", "/Admin/List?dt=News")
+            layer.closeAll()
+        });
+    });
+
+    $("#dataform").validate({
+        rules: { Title: "required" },
+        messages: { Title: "请填写标题!" },
+        submitHandler: function (form) {
+            var c = CKEDITOR.instances.Contents.getData();
+            //if (c.length <= 0) {
+            //    alert("请填写内容!");
+            //    return false;
+            //}
+            $("#Contents").val(c);
+            $.post("/Admin/Update?dt=News", $(form).serialize(), function (data) {
+                layer.confirm("提交资讯成功,是否继续新增?", {
+                    btn: ['继续新增', '回到列表']
+                }, function () {
+                    $("#Id").val("");
+                    $("#Title").val("");
+                    $("#Contents").val("");
+                    CKEDITOR.instances.Contents.setData("");
+                    layer.closeAll()
+                }, function () {
+                    $.AdminLTE.openTab("资讯列表", "/Admin/List?dt=News")
+                });
+
+            }, "JSON");
+        }
+    });
+</script>

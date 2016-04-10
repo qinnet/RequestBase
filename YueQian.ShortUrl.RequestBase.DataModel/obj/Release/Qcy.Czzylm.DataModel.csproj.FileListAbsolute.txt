@@ -1,0 +1,12 @@
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\bin\Release\Qcy.Czzylm.DataModel.dll
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\bin\Release\Qcy.Czzylm.DataModel.pdb
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\bin\Release\Qcy.Mongo.Helper.dll
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\bin\Release\MongoDB.Driver.dll
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\bin\Release\MongoDB.Bson.dll
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\bin\Release\MongoDB.Driver.Core.dll
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\bin\Release\Qcy.Mongo.Helper.pdb
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\bin\Release\MongoDB.Driver.xml
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\bin\Release\MongoDB.Bson.xml
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\obj\Release\Qcy.Czzylm.DataModel.csprojResolveAssemblyReference.cache
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\obj\Release\Qcy.Czzylm.DataModel.dll
+F:\Projects\Qcy.Czzylm\Qcy.Czzylm.DataModel\obj\Release\Qcy.Czzylm.DataModel.pdb

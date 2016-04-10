@@ -1,0 +1,209 @@
+﻿@model YueQian.ShortUrl.RequestBase.DataModel.EditorModule
+@{    Layout = null;}
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Scripts/uploadify/uploadify.css" rel="stylesheet" />
+<script src="~/Scripts/uploadify/jquery.uploadify.min.js"></script>
+<script>
+    $(function () {
+        $("#exampleInputFile1").uploadify({
+            swf: '/Scripts/Uploadify/uploadify.swf',
+            uploader: '/Upload/Focus',
+            buttonText: "图片",
+            fileTypeDesc: '图片文件',
+            fileTypeExts: '*.gif; *.jpg; *.png',
+            width: 88,
+            height: 24,
+            buttonClass: "upload_button",
+            onUploadStart: function (file) {
+            },
+            onUploadSuccess: function (file, data, response) {
+                $("#newModel_Picture").val(data);
+                $("#newModel_Picture_Preview").attr("src", data);
+            }
+        });
+
+        $("input[id*='old_upload']").each(function (i) {
+
+            var me = $(this);
+            var prefix = me.attr("data-for");
+
+            $(this).uploadify({
+                swf: '/Scripts/Uploadify/uploadify.swf',
+                uploader: '/Upload/Focus',
+                buttonText: "图片",
+                fileTypeDesc: '图片文件',
+                fileTypeExts: '*.gif; *.jpg; *.png',
+                width: 88,
+                height: 24,
+                buttonClass: "upload_button",
+                onUploadStart: function (file) {
+                },
+                onUploadSuccess: function (file, data, response) {
+                    $("#" + prefix).val(data);
+                    $("#" + prefix + "_preview").attr("src", data);
+                }
+            });
+
+        });
+    })
+</script>
+<form id="editorForm" action="/Editor" method="POST" enctype="multipart/form-data" class="form-horizontal">
+    <input type="hidden" name="em.Id" value="@Model.Id" />
+    <input type="hidden" name="em.ModuleName" value="@Model.ModuleName" />
+    <input type="hidden" name="em.ShowDescription" value="@Model.ShowDescription" />
+    <input type="hidden" name="em.ShowPicture" value="@Model.ShowPicture" />
+    <input type="hidden" name="em.ShowSubject" value="@Model.ShowSubject" />
+
+    <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+        <ul id="myTabs" class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">内容列表</a></li>
+            <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">新增</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="fh20"></div>
+            <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    @if (Model.Links != null && Model.Links != null)
+                    {
+                        var index = 1;
+                        foreach (var item in Model.Links)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse@(index)" aria-expanded="true" aria-controls="collapse@(index)">
+                                            #@(index)  @(Model.ShowSubject ? "[" + item.Subject + "]" : "")@item.Title
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse@(index)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading@(index)">
+                                    <div class="editoritemform">
+                                        @if (Model.ShowSubject)
+                                        {
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">主题</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" name="em.Links[@(index-1)].Subject" value="@item.Subject" placeholder="主题" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">主题链接</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" name="em.Links[@(index-1)].SubjectUrl" value="@item.SubjectUrl" placeholder="主题链接" />
+                                                </div>
+                                            </div>
+                                        }
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">标题</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" name="em.Links[@(index-1)].Title" value="@item.Title" placeholder="标题" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">链接</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" name="em.Links[@(index-1)].Url" value="@item.Url" placeholder="链接" />
+                                            </div>
+                                        </div>
+                                        @if (Model.ShowDescription)
+                                        {
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">描述</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" name="em.Links[@(index-1)].Description" rows="3">@item.Description</textarea>
+                                                </div>
+                                            </div>
+                                        }
+                                        @if (Model.ShowPicture)
+                                        {
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">图片</label>
+                                                <div class="col-sm-10">
+                                                    <div class="row">
+                                                        <div class="col-sm-6 col-md-4">
+                                                            <div class="thumbnail">
+                                                                <img src="@(string.IsNullOrEmpty(item.Picture) ? "/Images/default.jpg" : item.Picture)" id="upload_@(index)_preview" />
+                                                                <input type="hidden" name="em.Links[@(index-1)].Picture" value="@item.Picture" id="upload_@(index)" />
+                                                                <div class="caption">
+                                                                    <input type="button" id="old_upload@(index)" data-for="upload_@(index)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                                        index++;
+                        }
+                    }
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+                <div class="editoritemform">
+                    @if (Model.ShowSubject)
+                    {
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">主题</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="newModel.Subject" value="" placeholder="主题" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">主题链接</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="newModel.SubjectUrl" value="" placeholder="主题链接" />
+                            </div>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">标题</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="newModel.Title" value="" placeholder="标题" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">链接</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="newModel.Url" value="" placeholder="链接" />
+                        </div>
+                    </div>
+                    @if (Model.ShowDescription)
+                    {
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">描述</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="newModel.Description" rows="3"></textarea>
+                            </div>
+                        </div>
+                    }
+                    @if (Model.ShowPicture)
+                    {
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图片</label>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="thumbnail">
+                                            <img src="~/Images/default.jpg" id="newModel_Picture_Preview" />
+                                            <input type="hidden" name="newModel.Picture" id="newModel_Picture" value="" />
+                                            <div class="caption">
+                                                <input type="button" id="exampleInputFile1" name="exampleInputFile1" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

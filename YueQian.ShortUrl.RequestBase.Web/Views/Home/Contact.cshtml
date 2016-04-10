@@ -1,0 +1,78 @@
+﻿@{Layout = null;}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试</title>
+    <link href="~/Scripts/bsgrid/merged/bsgrid.all.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bsgrid/js/lang/grid.zh-CN.min.js"></script>
+    <script src="~/Scripts/bsgrid/merged/bsgrid.all.min.js"></script>
+    <link href="~/Scripts/bsgrid/css/pagination.css" rel="stylesheet" />
+    <script src="~/Scripts/bsgrid/js/jquery.pagination.js"></script>
+    <script type="text/javascript">
+        $.fn.bsgrid.initPaging = function (options) {
+            //
+        };
+        $.fn.bsgrid.setPagingValues = function (options) {
+            $("#searchTable_pt").pagination(options.totalRows, {
+                current_page: options.curPage - 1,
+                num_display_entries: 5,
+                num_edge_entries: 2,
+                items_per_page: options.settings.pageSize,
+                // link_to: "#",
+                prev_text: $.bsgridLanguage.pagingToolbar.prevPage,
+                next_text: $.bsgridLanguage.pagingToolbar.nextPage,
+                // ellipse_text: "...",
+                // prev_show_always: true,
+                // next_show_always: true,
+                // renderer: "defaultRenderer",
+                // load_first_page: false,
+                callback: function (page_index, jq) {
+                    $.fn.bsgrid.getGridObj(options.gridId).page(page_index + 1);
+                    return false;
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    Note: Multi row header not support move column width.
+    <table id="searchTable">
+        <tr>
+            <th colspan="2">XH And ID</th>
+            <th colspan="5">CONTENT</th>
+            <th>Operate</th>
+        </tr>
+        <tr>
+            <th w_index="XH" w_edit="text" width="5%;">XH</th>
+            <th w_index="ID" width="5%;">ID</th>
+            <th w_index="CHAR" w_align="left" width="15%;">CHAR</th>
+            <th w_render="hasA" w_align="left" width="30%;">TEXT</th>
+            <th w_index="DATE" width="15%;">DATE</th>
+            <th w_index="TIME" width="15%;">TIME</th>
+            <th w_index="NUM" width="5%;">NUM</th>
+            <th w_render="operate" width="10%;">Operate</th>
+        </tr>
+    </table><div id="searchTable_pt"></div>
+    <script type="text/javascript">
+        var gridObj;
+        $(function () {
+            gridObj = $.fn.bsgrid.init('searchTable', {
+                //autoLoad: false,
+                url: '/GetData',
+                pageSizeSelect: true,
+                pageSize: 10
+            });
+        });
+
+
+        function hasA(record, rowIndex, colIndex, options) {
+            return gridObj.getRecordIndexValue(record, 'TEXT') + '<a href="#' + gridObj.getRecordIndexValue(record, 'ID') + '" onclick="">修改</a>';
+        }
+        function operate(record, rowIndex, colIndex, options) {
+
+            return '<a href="#" onclick="gridObj.activeGridEditMode();alert(\'ID=' + gridObj.getRecordIndexValue(record, 'ID') + '\');">Operate</a>';
+        }
+    </script>
+</body>
+</html>
