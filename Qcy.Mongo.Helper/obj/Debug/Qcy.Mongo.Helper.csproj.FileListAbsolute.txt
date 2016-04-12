@@ -17,3 +17,13 @@ F:\Projects\YueQian.ShortUrl.RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Bson
 F:\Projects\YueQian.ShortUrl.RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Driver.xml
 F:\Projects\YueQian.ShortUrl.RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.dll
 F:\Projects\YueQian.ShortUrl.RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.pdb
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\bin\Debug\Qcy.Mongo.Helper.dll
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\bin\Debug\Qcy.Mongo.Helper.pdb
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Bson.dll
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Driver.Core.dll
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Driver.dll
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Bson.xml
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Driver.xml
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.csprojResolveAssemblyReference.cache
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.dll
+D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.pdb
