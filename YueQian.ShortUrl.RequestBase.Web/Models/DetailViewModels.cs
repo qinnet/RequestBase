@@ -12,7 +12,7 @@ namespace YueQian.ShortUrl.RequestBase.Web.Models
         public string Title { get; set; }
         public string Url { get; set; }
     }
-    public class TopicViewModel
+    public class TopicViewModel : ViewModelBase
     {
         public Topic TopicInfo { get; set; }
 
@@ -26,7 +26,8 @@ namespace YueQian.ShortUrl.RequestBase.Web.Models
         }
 
     }
-    public class DetailViewModel
+
+    public class DetailViewModel:ViewModelBase
     {
         public Topic TopicInfo { get; set; }
         public News NewsInfo { get; set; }

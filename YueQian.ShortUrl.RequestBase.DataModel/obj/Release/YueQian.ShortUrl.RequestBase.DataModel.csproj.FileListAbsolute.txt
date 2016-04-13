@@ -1,0 +1,12 @@
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Release\YueQian.ShortUrl.RequestBase.DataModel.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Release\YueQian.ShortUrl.RequestBase.DataModel.pdb
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Release\Qcy.Mongo.Helper.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Release\MongoDB.Bson.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Release\MongoDB.Driver.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Release\MongoDB.Driver.Core.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Release\Qcy.Mongo.Helper.pdb
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Release\MongoDB.Bson.xml
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Release\MongoDB.Driver.xml
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\obj\Release\YueQian.ShortUrl.RequestBase.DataModel.csprojResolveAssemblyReference.cache
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\obj\Release\YueQian.ShortUrl.RequestBase.DataModel.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\obj\Release\YueQian.ShortUrl.RequestBase.DataModel.pdb

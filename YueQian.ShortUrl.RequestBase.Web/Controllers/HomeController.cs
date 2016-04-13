@@ -14,25 +14,27 @@ namespace YueQian.ShortUrl.RequestBase.Web.Controllers
     {
         public async Task<ActionResult> Index(bool editMode = false)
         {
-            return await Task.Run(() =>
-            {
-                ViewBag.isAdmin = true;
-                ViewBag.isShow = true && editMode;
-                var model = new IndexViewModel();
-                return View(model);
-            });
 
+            ViewBag.isAdmin = true;
+            ViewBag.isShow = true && editMode;
+            var model = new IndexViewModel();
+            model.List = await MongoHelper.Find<Topic>(s => !string.IsNullOrEmpty(s.Title));
+            return View(model);
         }
 
         public async Task<ActionResult> Topic(string id)
         {
-            var hotTopic =await MongoHelper.FindOne<Topic>(id);
+            var hotTopic = await MongoHelper.FindOne<Topic>(id);
             if (hotTopic == null) return Redirect("/");
             var model = new TopicViewModel();
             model.TopicInfo = hotTopic;
+            model.PageTitle = string.Format("{0} - 求源", hotTopic.Title);
+            model.PageKeyword = hotTopic.Keywords;
+            model.PageDescription = hotTopic.Description;
+
             var collection = (await MongoHelper.Find<News>(s => s.TopicId == id)).ToList();
             if (collection != null)
-            {                
+            {
                 model.Collection = collection;
                 model.Nav = collection.Select(s => new ListItem { Title = s.ShortTitle, Url = string.Format("#rb_{0}", s.Id) });
             }
@@ -41,16 +43,18 @@ namespace YueQian.ShortUrl.RequestBase.Web.Controllers
 
         public async Task<ActionResult> Details(string id)
         {
-            var news =await MongoHelper.FindOne<News>(id);
+            var news = await MongoHelper.FindOne<News>(id);
             if (news == null) return Redirect("/");
 
             var model = new DetailViewModel();
             var topic = await MongoHelper.FindOne<Topic>(s => s.Id == news.TopicId);
+
             model.NewsInfo = news;
             model.TopicInfo = topic;
+            model.PageTitle = string.Format("{0} - 求源", news.Title);
             return View(model);
         }
-       
+
 
         public ActionResult Contact()
         {

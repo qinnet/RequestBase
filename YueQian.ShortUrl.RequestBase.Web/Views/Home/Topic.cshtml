@@ -1,140 +1,39 @@
-﻿@modelYueQian.ShortUrl.RequestBase.Web.Models.TopicViewModel
-@{    Layout = null;}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>@Model.TopicInfo.Title - 求源网</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
-    <meta content="@Model.TopicInfo.Keywords" name="keywords" />
-    <meta content="@Model.TopicInfo.Description" name="description" />
-    <!-- Bootstrap 3.3.5 -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-    <!-- Theme style -->
-    <link href="~/Content/AdminLTE/css/AdminLTE.min.css" rel="stylesheet" />
-    <link href="~/Content/AdminLTE/css/skins/_all-skins.min.css" rel="stylesheet" />
-    <link href="~/Content/AdminLTE/css/style.css" rel="stylesheet" />
+﻿@model YueQian.ShortUrl.RequestBase.Web.Models.TopicViewModel
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
-        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
-    <![endif]-->
-    <style>
-        .content-header > h1 { margin: 0; font-size: 42px;margin:15px 0; }
-        .box-show p { text-indent: 2em;line-height:26px;vertical-align:middle; }
-    </style>
-</head>
-<body class="skin-blue fixed" data-spy="scroll" data-target="#scrollspy">
-    <div class="wrapper">
-        <header class="main-header">
-            <!-- Logo -->
-            <!-- Logo -->
-            <a href="/" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>R</b>B</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Request</b>Base</span>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">显示/隐藏导航</span>
-                </a>
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <li><a href="http://www.requestbase.com/">QQ工作室</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- Left side column. contains the logo and sidebar -->
+<div class="main">
+    <div class="col-xs-12 col-md-9">
+        <div class="page-header">
+            <h1>@Model.TopicInfo.Title <small>来源: <a href="@Model.TopicInfo.ComeFromUrl" target="_blank">@Model.TopicInfo.ComeFrom</a></small></h1>
+        </div>
+        <div class="rb-main">
+            @Html.Raw(Model.TopicInfo.Contents)
+            <div class="clearfix"></div>
+        </div>
+        @foreach (var item in Model.Collection)
+        {
+        <div class="rb-item">
+            <h3><a href="/Details/@item.Id" target="_blank">@item.Title</a></h3>
+            <p>@Html.Raw(item.Description)</p>
+            <div class="clearfix"></div>
+        </div>
+        }
+    </div>
+    <div class="col-xs-6 col-md-3">
         <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
+
             <div class="sidebar" id="scrollspy">
-                <!-- sidebar menu: : style can be found in sidebar.less -->
+
                 <ul class="nav sidebar-menu">
-                    <li class="header">导航</li>
                     <li><a href="#introduction"><i class="fa fa-circle-o"></i> 导言</a></li>
                     @foreach (var item in Model.Nav)
                     {
-                        <li><a href="@item.Url"><i class="fa fa-circle-o"></i> @item.Title</a></li>
+                        <li><a href="@item.Url"><i class="glyphicon glyphicon-screenshot"></i> @item.Title</a></li>
                     }
                 </ul>
             </div>
-            <!-- /.sidebar -->
         </aside>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <h1>
-                    @Model.TopicInfo.Title
-                    <small>来源:@Model.TopicInfo.ComeFrom</small>
-                </h1>
-            </div>
-            <div class="clearfix"></div>
-            <!-- Main content -->
-            <div class="content body">
-                <div class="row" id="introduction">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <i class="fa fa-hourglass-half"></i>
-                            <h3 class="box-title">@Model.TopicInfo.Title</h3>
-                        </div>
-                        <div class="box-body">
-                            @Html.Raw(Model.TopicInfo.Contents)
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-                <section id="">
-                    <div class="lead">
-                    </div>
-                </section>
-                @foreach (var item in Model.Collection)
-                {
-                    <div class="row" id="rb_@item.Id">
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <i class="fa fa-hourglass-half"></i>
-                                <h3 class="box-title"><a href="#rb_@item.Id">@item.Title</a></h3>
-                            </div>
-                            <div class="box-body box-show">
-                                <p>@Html.Raw(item.Description)</p>
-                                <div class="clearfix"></div>
-                                <ul class="list-inline">
-                                    @if (!string.IsNullOrEmpty(item.SourceUrl))
-                                    {
-                                    <li><a href="@item.SourceUrl" class="link-black" target="_blank"><i class="fa fa-external-link margin-r-5"></i> 查看原文</a></li>}
-                                    <li class="pull-right"><a href="/Details/@item.Id" class="link-black" target="_blank"><i class="fa fa-book margin-r-5"></i> 查看全文</a></li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div><!-- /.content -->
-        </div><!-- /.content-wrapper -->
-        @Html.Partial("_Footer")
-    </div><!-- ./wrapper -->
-    <!-- jQuery 2.1.4 -->
-    <script src="~/Scripts/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/Content/AdminLTE/js/app.min.js"></script>
-    <!-- SlimScroll 1.3.0 -->
-    <script src="~/Scripts/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="~/Scripts/docs.js"></script>
-</body>
-</html>
+    </div>
+</div>
+<div class="clearfix"></div>
+@Html.Partial("_Footer")

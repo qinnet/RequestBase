@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Qcy.Czzylm.Web.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="YueQian.ShortUrl.RequestBase.Web.MvcApplication" Language="C#" %>

@@ -27,3 +27,13 @@ D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\bin\Debug\Mongo
 D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.csprojResolveAssemblyReference.cache
 D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.dll
 D:\PrivateWorks\跃迁短址\GitHub\RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.pdb
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\bin\Debug\Qcy.Mongo.Helper.dll
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\bin\Debug\Qcy.Mongo.Helper.pdb
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Bson.dll
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Driver.Core.dll
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Driver.dll
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Bson.xml
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\bin\Debug\MongoDB.Driver.xml
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.csprojResolveAssemblyReference.cache
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.dll
+F:\Projects\github\RequestBase\Qcy.Mongo.Helper\obj\Debug\Qcy.Mongo.Helper.pdb

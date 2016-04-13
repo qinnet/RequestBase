@@ -22,3 +22,15 @@ D:\PrivateWorks\跃迁短址\GitHub\RequestBase\YueQian.ShortUrl.RequestBase.Dat
 D:\PrivateWorks\跃迁短址\GitHub\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\obj\Debug\YueQian.ShortUrl.RequestBase.DataModel.csprojResolveAssemblyReference.cache
 D:\PrivateWorks\跃迁短址\GitHub\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\obj\Debug\YueQian.ShortUrl.RequestBase.DataModel.dll
 D:\PrivateWorks\跃迁短址\GitHub\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\obj\Debug\YueQian.ShortUrl.RequestBase.DataModel.pdb
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Debug\YueQian.ShortUrl.RequestBase.DataModel.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Debug\YueQian.ShortUrl.RequestBase.DataModel.pdb
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Debug\Qcy.Mongo.Helper.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Debug\MongoDB.Bson.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Debug\MongoDB.Driver.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Debug\MongoDB.Driver.Core.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Debug\Qcy.Mongo.Helper.pdb
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Debug\MongoDB.Bson.xml
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\bin\Debug\MongoDB.Driver.xml
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\obj\Debug\YueQian.ShortUrl.RequestBase.DataModel.csprojResolveAssemblyReference.cache
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\obj\Debug\YueQian.ShortUrl.RequestBase.DataModel.dll
+F:\Projects\github\RequestBase\YueQian.ShortUrl.RequestBase.DataModel\obj\Debug\YueQian.ShortUrl.RequestBase.DataModel.pdb

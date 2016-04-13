@@ -12,5 +12,10 @@ namespace YueQian.ShortUrl.RequestBase.DataModel
         /// 起源
         /// </summary>
         public string ComeFrom { get; set; }
+        
+        /// <summary>
+        /// 起源地址
+        /// </summary>
+        public string ComeFromUrl { get; set; }
     }
 }

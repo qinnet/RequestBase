@@ -1,5 +1,5 @@
 ﻿@{Layout = null;}
-@modelYueQian.ShortUrl.RequestBase.DataModel.News
+@model YueQian.ShortUrl.RequestBase.DataModel.News
 <div class="box box-info">
     <form class="form-horizontal" id="dataform">
         <div class="box-body">
@@ -30,6 +30,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="ComeFrom" class="col-sm-2 control-label">来源地址</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.SourceUrl, new { @class = "form-control", placeholder = "来源地址" })
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="Keywords" class="col-sm-2 control-label">关键词</label>
                 <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.Keywords, new { @class = "form-control", placeholder = "关键词" })
@@ -38,7 +44,7 @@
             <div class="form-group">
                 <label for="Description" class="col-sm-2 control-label">描述</label>
                 <div class="col-sm-10">
-                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "描述", style = "height:150px;" })
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "描述，100左右", style = "height:80px;" })
                 </div>
             </div>
             <div class="form-group">
@@ -94,9 +100,11 @@
                 layer.confirm("提交资讯成功,是否继续新增?", {
                     btn: ['继续新增', '回到列表']
                 }, function () {
-                    $("#Id").val("");
-                    $("#Title").val("");
-                    $("#Contents").val("");
+                    $(".col-sm-10 input[type=text]").val("");
+                    //$("#Id").val("");
+                    //$("#Title").val("");
+                    //$("#ShortTitle").val("");
+                    //$("#Contents").val("");
                     CKEDITOR.instances.Contents.setData("");
                     layer.closeAll()
                 }, function () {

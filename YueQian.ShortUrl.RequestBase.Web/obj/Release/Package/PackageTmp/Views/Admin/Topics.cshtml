@@ -3,7 +3,7 @@
     #searchForm { width: 98%; margin: 0 auto; }
     #searchTable { margin: 0 auto; margin-top: 10px; }
 </style>
-<div id="Topicslist" class="box box-info">
+<div class="box box-info">
     <div class="box-body">
         <form class="form-inline" id="searchForm">
             <div class="form-group"><input type="text" class="form-control" id="keyword" name="keyword" placeholder="关键词" style="width:300px;" /></div>
@@ -17,19 +17,18 @@
             </div>
             <button type="button" class="btn btn-primary" onclick="doSearch()">搜 索</button>
         </form>
-        <table id="searchTable">
-            <tr>
-                <th w_render="rowIndex" width="40"></th>
-                <th w_render="titleShow" w_align="left">标题</th>
-                <th w_index="CreationDataString" width="140">更新时间</th>
-                <th w_render="operate" width="140">操作</th>
-            </tr>
-        </table>
-        <div id="searchTable_pt"></div>
+        <div class="datatable">
+            <table id="searchTable">
+                <tr>
+                    <th w_render="rowIndex" width="40"></th>
+                    <th w_render="titleShow" w_align="left">标题</th>
+                    <th w_index="CreationDataString" width="140">更新时间</th>
+                    <th w_render="operate" width="140">操作</th>
+                </tr>
+            </table>
+            <div id="searchTable_pt"></div>
+        </div>
     </div>
-</div>
-<div id="Topicsedit" style="display:none;">
-
 </div>
 <script type="text/javascript">
     var gridObj;

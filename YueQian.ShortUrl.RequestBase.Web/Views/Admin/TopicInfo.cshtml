@@ -1,5 +1,5 @@
 ﻿@{Layout = null;}
-@modelYueQian.ShortUrl.RequestBase.DataModel.Topic
+@model YueQian.ShortUrl.RequestBase.DataModel.Topic
 <div class="box box-info">
     <form class="form-horizontal" id="dataform">
         <div class="box-body">
@@ -14,6 +14,12 @@
                 <label for="ComeFrom" class="col-sm-2 control-label">来源</label>
                 <div class="col-sm-10">
                     @Html.TextBoxFor(model => model.ComeFrom, new { @class = "form-control", placeholder = "来源" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ComeFrom" class="col-sm-2 control-label">来源网址</label>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(model => model.ComeFromUrl, new { @class = "form-control", placeholder = "来源网址" })
                 </div>
             </div>
             <div class="form-group">
