@@ -14,13 +14,18 @@ namespace YueQian.ShortUrl.RequestBase.Web.Controllers
     {
         public async Task<ActionResult> Index(bool editMode = false)
         {
-
-            ViewBag.isAdmin = true;
-            ViewBag.isShow = true && editMode;
             var model = new IndexViewModel();
             model.List = await MongoHelper.Find<Topic>(s => !string.IsNullOrEmpty(s.Title));
             return View(model);
         }
+
+        public async Task<ActionResult> Tag(string tagName)
+        {
+            var model = new IndexViewModel();
+            model.List = await MongoHelper.Find<Topic>(s => !string.IsNullOrEmpty(s.Title));
+            return View(model);
+        }
+
 
         public async Task<ActionResult> Topic(string id)
         {
@@ -56,12 +61,7 @@ namespace YueQian.ShortUrl.RequestBase.Web.Controllers
         }
 
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
 
 
         public async Task<ActionResult> Editor(string module)
@@ -118,7 +118,12 @@ namespace YueQian.ShortUrl.RequestBase.Web.Controllers
         }
 
 
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
     }
 
 }
